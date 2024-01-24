@@ -1,0 +1,6 @@
+blue => #0000EE
+second blue => #333399
+yellow => #F37520
+red => #F00627
+gray => #666666
+second gray => #333333
