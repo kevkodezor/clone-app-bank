@@ -1,9 +1,10 @@
-import { View, Text, TextInput, TouchableOpacity, StyleSheet, Alert, SafeAreaView } from 'react-native';
+import { View, Text, TextInput, TouchableOpacity, StyleSheet, SafeAreaView } from 'react-native';
+import { Footer } from '../../components';
 
 export default function Login({ navigation }) {
     return (
-        <SafeAreaView style={styles.viewLogin}>
-            <View style={styles.contentInput}>
+        <SafeAreaView style={styles.contentLogin}>
+            <View>
                 <Text style={styles.label}>Usuario de BFC en Línea:</Text>
                 <TextInput
                     style={styles.input}
@@ -13,29 +14,36 @@ export default function Login({ navigation }) {
                 // onEndEditing={(e) => handleValidUser(e.nativeEvent.text)}
                 />
             </View>
-            <View style={styles.contentInput}>
+            <View>
                 <Text style={styles.label}>Clave:</Text>
                 <TextInput
                     style={styles.input}
                     autoCapitalize='none'
                     selectionColor='#666666'
+                    secureTextEntry={true}
                 // onChangeText={(value) => textInputChange(value)}
                 // onEndEditing={(e) => handleValidUser(e.nativeEvent.text)}
                 />
             </View>
+            <View style={styles.contentActions}>
+                <TouchableOpacity style={styles.btnAction}>
+                    <Text style={styles.btnText}>Aceptar</Text>
+                </TouchableOpacity>
+                <TouchableOpacity style={styles.btnAction}>
+                    <Text style={styles.btnText}>Cancelar</Text>
+                </TouchableOpacity>
+            </View>
+            <Footer />
         </SafeAreaView>
     );
 }
 
 const styles = StyleSheet.create({
-    viewLogin: {
-        flex: 1,
-        justifyContent: 'center',
+    contentLogin: {
+        gap: 30,
+        height: '100%',
         alignItems: 'center',
-        width: '100%'
-    },
-    contentInput: {
-        marginTop: 30,
+        justifyContent: 'center'
     },
     label: {
         fontSize: 17,
@@ -51,52 +59,20 @@ const styles = StyleSheet.create({
         top: 10,
         paddingLeft: 10,
     },
-    buttonLogin: {
+    contentActions: {
         flexDirection: 'row',
-        justifyContent: 'space-between',
-        alignItems: 'center',
-        backgroundColor: '#13B955',
-        padding: 10,
-        width: '48%',
-        borderRadius: 10,
-        // elevation: 5
+        justifyContent: 'center',
+        gap: 15
     },
-    iconLogin: {
-        color: '#FFFFFF',
-        fontSize: 20
+    btnAction: {
+        backgroundColor: '#F3A020',
+        padding: 15,
+        borderRadius: 5,
+        width: 100,
     },
-    textLogin: {
-        fontSize: 15,
-        color: '#FFFFFF',
-    },
-    success: {
-        flexDirection: 'row',
-        alignItems: 'center',
-        justifyContent: 'space-between',
-        marginTop: 60,
-        marginLeft: 25,
-        marginRight: 25,
-    },
-    buttonUp: {
-        flexDirection: 'row',
-        justifyContent: 'space-between',
-        alignItems: 'center',
-        backgroundColor: '#763FE5',
-        padding: 10,
-        width: '48%',
-        borderRadius: 10,
-    },
-    iconUp: {
-        color: '#FFFFFF',
-        fontSize: 20
-    },
-    textUp: {
-        fontSize: 15,
-        color: '#FFFFFF',
-    },
-    rcvPass: {
-        alignSelf: 'center',
-        marginTop: 25,
-        color: '#6A6A6A'
+    btnText: {
+        color: '#333399',
+        fontWeight: 'bold',
+        textAlign: 'center'
     }
 });
