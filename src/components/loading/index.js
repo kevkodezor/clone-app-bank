@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, View, ActivityIndicator, ImageBackground } from 'react-native';
 import loadingImg from '../../resources/img/main-loading.png'
 
@@ -15,6 +16,7 @@ export default function Loading() {
 
     return (
         <View style={styles.container}>
+            <StatusBar style='light' backgroundColor='#0000EE' animated={true} />
             <ImageBackground style={styles.img} source={loadingImg} resizeMode='cover'>
                 <ActivityIndicator style={styles.spinnerLoading} size='large' color={color} animating />
             </ImageBackground>
@@ -24,18 +26,19 @@ export default function Loading() {
 
 const styles = StyleSheet.create({
     container: {
+        flex: 1,
         display: 'flex',
-        flexDirection: 'column'
+        flexDirection: 'column',
+        alignItems: 'center',
+        justifyContent: 'center'
     },
     img: {
         flex: 1,
         width: '100%',
-        marginLeft: -160,
         alignItems:'center',
         justifyContent: 'center'
     },
     spinnerLoading: {
         marginTop: 300,
-        marginLeft: 160
     }
 });

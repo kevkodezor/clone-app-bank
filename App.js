@@ -1,29 +1,29 @@
-// import 'react-native-gesture-handler';
+import 'react-native-gesture-handler';
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, SafeAreaView } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { Loading } from './src/components';
 import { Login } from './src/views';
 
+const Stack = createNativeStackNavigator();
+
 export default function App() {
 
-  const loading = false;
+    const loading = false;
 
-  return (
-    <SafeAreaView style={styles.container}>
-      <StatusBar style='light' backgroundColor='#0000EE' animated={true} />
-      {loading
-        ? <Loading />
-        : <Login />
-      }
-
-    </SafeAreaView>
-  );
+    if (loading) return <Loading />
+    
+    return (
+        <NavigationContainer>
+            <StatusBar style='light' backgroundColor='#0000EE' animated={true} />
+            <Stack.Navigator
+                initialRouteName='Login'
+                screenOptions={{
+                    headerShown: false
+                }}
+            >
+                <Stack.Screen name='Login' component={Login} />
+            </Stack.Navigator>
+        </NavigationContainer>
+    )
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center'
-  },
-});
