@@ -1,4 +1,6 @@
-import { View, Text, TextInput, TouchableOpacity, StyleSheet, SafeAreaView } from 'react-native';
+import { View, Text, TextInput, TouchableOpacity, StyleSheet, SafeAreaView, ScrollView } from 'react-native';
+import Icon from 'react-native-vector-icons/Entypo';
+import IconFat from 'react-native-vector-icons/Feather';
 import { Footer } from '../../components';
 
 export default function Login({ navigation }) {
@@ -25,6 +27,7 @@ export default function Login({ navigation }) {
                 // onEndEditing={(e) => handleValidUser(e.nativeEvent.text)}
                 />
             </View>
+            
             <View style={styles.contentActions}>
                 <TouchableOpacity style={styles.btnAction}>
                     <Text style={styles.btnText}>Aceptar</Text>
@@ -33,6 +36,16 @@ export default function Login({ navigation }) {
                     <Text style={styles.btnText}>Cancelar</Text>
                 </TouchableOpacity>
             </View>
+
+            <View style={styles.infoContact}>
+                <TouchableOpacity onPress={() => navigation.navigate('Info')}>
+                    <Icon name='info' style={styles.btnInfoContact} />
+                </TouchableOpacity>
+                <TouchableOpacity onPress={() => navigation.navigate('Contact')}>
+                    <IconFat name='at-sign' style={styles.btnInfoContact} />
+                </TouchableOpacity>
+            </View>
+
             <Footer />
         </SafeAreaView>
     );
@@ -43,7 +56,7 @@ const styles = StyleSheet.create({
         gap: 30,
         height: '100%',
         alignItems: 'center',
-        justifyContent: 'center'
+        justifyContent: 'center',
     },
     label: {
         fontSize: 17,
@@ -74,5 +87,15 @@ const styles = StyleSheet.create({
         color: '#333399',
         fontWeight: 'bold',
         textAlign: 'center'
+    },
+    infoContact: {
+        flexDirection: 'row',
+        position: 'relative',
+        top: 30,
+        gap: 50
+    },
+    btnInfoContact: {
+        fontSize: 50,
+        color: '#0000EE'
     }
 });
