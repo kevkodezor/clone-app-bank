@@ -1,7 +1,7 @@
 // import 'react-native-gesture-handler';
 import { StatusBar } from 'expo-status-bar';
 import { NavigationContainer } from '@react-navigation/native';
-import { Loading } from './src/components';
+import { Footer, Loading } from './src/components';
 import { RootScreen } from './src/views';
 import { AuthContext } from './src/context'
 
@@ -16,6 +16,7 @@ export default function App() {
             <NavigationContainer>
                 <StatusBar style='light' backgroundColor='#0000EE' animated={true} />
                 <RootScreen />
+                <Footer />
             </NavigationContainer>
         </AuthContext.Provider>
     )

@@ -1,7 +1,6 @@
-import { View, Text, TextInput, TouchableOpacity, StyleSheet, SafeAreaView, ScrollView } from 'react-native';
+import { View, Text, TextInput, TouchableOpacity, StyleSheet, SafeAreaView } from 'react-native';
 import Icon from 'react-native-vector-icons/Entypo';
 import IconFat from 'react-native-vector-icons/Feather';
-import { Footer } from '../../components';
 
 export default function Login({ navigation }) {
     return (
@@ -45,8 +44,6 @@ export default function Login({ navigation }) {
                     <IconFat name='at-sign' style={styles.btnInfoContact} />
                 </TouchableOpacity>
             </View>
-
-            <Footer />
         </SafeAreaView>
     );
 }
